@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--    APPS COLOR PALETTE DARK BLUE -->
+    <color name="dark_blue_1">#090088</color>
+    <color name="dark_blue_2">#02006c</color>
+    <color name="dark_blue_3">#010057</color>
+    <color name="dark_blue_4">#010048</color>
+    <color name="dark_blue_5">#03002e</color>
+
+    <!--    APPS COLOR PALETTE LIGHT BLUE -->
+    <color name="light_blue_1">#d8f9ff</color>
+    <color name="light_blue_2">#b1f2ff</color>
+    <color name="light_blue_3">#8aecff</color>
+    <color name="light_blue_4">#63e5ff</color>
+    <color name="light_blue_5">#3cdfff</color>
+
 </resources>
