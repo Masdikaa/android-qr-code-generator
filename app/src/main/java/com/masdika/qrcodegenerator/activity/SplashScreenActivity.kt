@@ -26,8 +26,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
         @Suppress("DEPRECATION")
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            val intent = Intent(this, MainActivity::class.java)
+            // AVOIDING DOUBLE INSTANCE OF ACTIVITY
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intent)
             finish()
-        }, 1500)
+        }, 2000)
     }
 }

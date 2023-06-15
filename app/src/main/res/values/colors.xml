@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#9BA4B5</color>
 
     <!--    APPS COLOR PALETTE DARK BLUE -->
     <color name="dark_blue_1">#090088</color>
@@ -16,5 +17,7 @@
     <color name="light_blue_3">#8aecff</color>
     <color name="light_blue_4">#63e5ff</color>
     <color name="light_blue_5">#3cdfff</color>
+    <color name="light_blue_6">#5490D9</color>
+
 
 </resources>
