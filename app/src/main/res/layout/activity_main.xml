@@ -25,7 +25,8 @@
             android:layout_marginEnd="5dp"
             android:background="@color/white"
             android:src="@drawable/information"
-            app:layout_constraintDimensionRatio="1:1" />
+            app:layout_constraintDimensionRatio="1:1"
+            tools:ignore="VisualLintBounds" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -45,13 +46,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sansburg"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Text to QR Generator"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="26sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/title_guideline"
+                tools:ignore="HardcodedText"
                 tools:layout_editor_absoluteX="0dp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -74,20 +76,22 @@
                     android:inputType="textMultiLine"
                     android:lines="6"
                     android:scrollbarStyle="insideInset"
-                    android:scrollbars="vertical" />
+                    android:scrollbars="vertical"
+                    tools:ignore="HardcodedText,VisualLintTextFieldSize,TextContrastCheck" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView
                 android:id="@+id/image_qr_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:background="@drawable/qr_default"
+                android:scaleType="fitXY"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintEnd_toEndOf="@id/side_end"
                 app:layout_constraintStart_toStartOf="@id/side_start"
-                app:layout_constraintTop_toBottomOf="@id/input_layout" />
+                app:layout_constraintTop_toBottomOf="@id/input_layout"
+                tools:ignore="ContentDescription" />
 
             <Button
                 android:id="@+id/btn_download"
@@ -98,10 +102,11 @@
                 android:text="Download"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/side_end"
                 app:layout_constraintStart_toStartOf="@id/side_start"
                 app:layout_constraintTop_toBottomOf="@id/btn_generate"
-                tools:ignore="VisualLintButtonSize" />
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/btn_generate"
@@ -113,10 +118,11 @@
                 android:text="Generate"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/side_end"
                 app:layout_constraintStart_toStartOf="@id/side_start"
                 app:layout_constraintTop_toBottomOf="@+id/image_qr_result"
-                tools:ignore="VisualLintButtonSize" />
+                tools:ignore="HardcodedText,VisualLintButtonSize" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/title_guideline"
@@ -163,14 +169,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/end_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.90" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/header_guideline"
