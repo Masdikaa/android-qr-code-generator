@@ -7,10 +7,10 @@
     tools:context=".activity.SplashScreenActivity">
 
     <ImageView
+        android:id="@+id/splash_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@color/light_blue_5"
-        android:id="@+id/splash_image"
+        android:src="@drawable/img"
         app:layout_constraintBottom_toTopOf="@id/hguideline2"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/vguideline2"
