@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/arial"
-        android:text="Text to QR Code Generator"
+        android:text="@string/text_to_qr_code_generator"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:scaleType="fitXY"
-            android:src="@color/gray"
+            android:src="@drawable/default_image"
             tools:ignore="ContentDescription,ImageContrastCheck" />
 
     </androidx.cardview.widget.CardView>
@@ -57,7 +57,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:scrollbars="none"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,10 +95,11 @@
                     android:layout_marginTop="15dp"
                     android:backgroundTint="#5490D9"
                     android:fontFamily="@font/bebasneue_regular"
-                    android:text="Generate"
+                    android:text="@string/generate"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
 
                 <Button
                     android:id="@+id/btn_download"
@@ -106,10 +108,11 @@
                     android:layout_marginTop="5dp"
                     android:backgroundTint="#5490D9"
                     android:fontFamily="@font/bebasneue_regular"
-                    android:text="Save"
+                    android:text="@string/save"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="VisualLintButtonSize" />
 
             </LinearLayout>
 
