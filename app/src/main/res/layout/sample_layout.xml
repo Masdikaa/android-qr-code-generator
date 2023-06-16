@@ -11,8 +11,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:fontFamily="@font/arial"
-        android:text="Text to QR Code Generator"
+        android:fontFamily="@font/poppins_regular"
+        android:text="TEXT TO QR GENERATOR"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -56,8 +56,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,7 +69,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="15dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/input_text"
@@ -80,7 +79,7 @@
                         android:gravity="top"
                         android:hint="Input Your Text"
                         android:inputType="textMultiLine"
-                        android:lines="4"
+                        android:lines="6"
                         android:scrollbarStyle="insideInset"
                         android:scrollbars="vertical"
                         tools:ignore="HardcodedText,VisualLintTextFieldSize,TextContrastCheck" />
@@ -106,7 +105,7 @@
                     android:layout_marginTop="5dp"
                     android:backgroundTint="#5490D9"
                     android:fontFamily="@font/bebasneue_regular"
-                    android:text="Save"
+                    android:text="Download"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20sp" />

@@ -3,7 +3,6 @@ package com.masdika.qrcodegenerator.activity
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.white)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.light_blue_6)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnGenerate.setOnClickListener {
             textInput = binding.inputText.text.toString()
-            val writer: MultiFormatWriter = MultiFormatWriter()
+            val writer = MultiFormatWriter()
 
             if (textInput.isEmpty()) {
                 binding.inputText.error = "Field belum di isi!"
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     val bitMatrix: BitMatrix =
                         writer.encode(textInput, BarcodeFormat.QR_CODE, 1000, 1000)
-                    val barcodeEncoder: BarcodeEncoder = BarcodeEncoder()
+                    val barcodeEncoder = BarcodeEncoder()
                     val bitmap: Bitmap = barcodeEncoder.createBitmap(bitMatrix)
 
                     binding.imageQrResult.setImageBitmap(bitmap)
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 } catch (e: WriterException) {
                     Log.e("Error", e.toString())
                 }
+
             }
         }
 
