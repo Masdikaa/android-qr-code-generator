@@ -15,7 +15,8 @@
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toStartOf="@id/vguideline2"
         app:layout_constraintStart_toEndOf="@id/vguideline1"
-        app:layout_constraintTop_toBottomOf="@id/hguideline1" />
+        app:layout_constraintTop_toBottomOf="@id/hguideline1"
+        tools:ignore="ContentDescription" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hguideline1"
