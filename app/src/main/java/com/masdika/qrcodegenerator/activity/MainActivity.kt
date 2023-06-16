@@ -28,6 +28,7 @@ import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var backPress: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             val writer = MultiFormatWriter()
 
             if (textInput.isEmpty()) {
-                binding.inputText.error = "field is still empty !"
+                binding.inputText.error = "Field is still empty !"
                 binding.inputText.requestFocus()
             } else {
                 try {
@@ -112,6 +113,19 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error", "$e.toString()")
         }
         return image!!
+    }
+
+    //Back-press function
+    @Deprecated("Deprecated in Java")
+    @Suppress("DEPRECATION")
+    override fun onBackPressed() {
+        if (backPress + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed()
+            return
+        } else {
+            Toast.makeText(baseContext, "Press back again to exit apps", Toast.LENGTH_SHORT).show()
+        }
+        System.currentTimeMillis().also { backPress = it }
     }
 
 }

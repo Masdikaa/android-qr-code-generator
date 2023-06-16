@@ -105,7 +105,6 @@
                     android:id="@+id/btn_download"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:backgroundTint="#5490D9"
                     android:fontFamily="@font/bebasneue_regular"
                     android:text="@string/save"
