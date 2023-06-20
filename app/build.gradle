@@ -50,7 +50,7 @@ dependencies {
 
     //Libraries to implement QR code generator
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     implementation "androidx.multidex:multidex:2.0.1"
 
     //Libraries for QR code scanner
@@ -61,4 +61,5 @@ dependencies {
 
     //Hide softkeyboard
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+
 }

@@ -1,7 +1,9 @@
 package com.masdika.qrcodegenerator.activity
 
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
@@ -13,6 +15,7 @@ import nl.joery.animatedbottombar.AnimatedBottomBar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
@@ -20,9 +23,48 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, GenerateFragment())
-            .commit()
+        val contentView = findViewById<View>(androidx.appcompat.R.id.content)
 
+        //KeyboardAppearListener
+        var isKeyboardShowing = false
+        fun onKeyboardVisibilityChanged(opened: Boolean) {
+            Log.d("Keyboard", "$opened")
+            if (opened) {
+                binding.bottomBar.visibility = View.INVISIBLE
+            } else {
+                binding.bottomBar.visibility = View.VISIBLE
+            }
+        }
+        // ContentView is the root view of the layout of this activity/fragment
+        contentView.viewTreeObserver.addOnGlobalLayoutListener {
+            val r = Rect()
+            contentView.getWindowVisibleDisplayFrame(r)
+            val screenHeight = contentView.rootView.height
+
+            // r.bottom is the position above soft keypad or device button.
+            // if keypad is shown, the r.bottom is smaller than that before.
+            val keypadHeight = screenHeight - r.bottom
+            Log.d("KeypadHeight", "$keypadHeight")
+
+            if (keypadHeight > screenHeight * 0.15) { // 0.15 ratio is perhaps enough to determine keypad height.
+                // keyboard is opened
+                if (!isKeyboardShowing) {
+                    isKeyboardShowing = true
+                    onKeyboardVisibilityChanged(true)
+                }
+            } else {
+                // keyboard is closed
+                if (isKeyboardShowing) {
+                    isKeyboardShowing = false
+                    onKeyboardVisibilityChanged(false)
+                }
+            }
+        }
+
+        //Initiate first fragment
+        supportFragmentManager.beginTransaction().add(R.id.fragment_container, GenerateFragment()).commit()
+
+        //BottomBar Listener
         binding.bottomBar.setOnTabSelectListener(object : AnimatedBottomBar.OnTabSelectListener {
             override fun onTabSelected(
                 lastIndex: Int,
@@ -34,14 +76,12 @@ class MainActivity : AppCompatActivity() {
                 when (newTab.id) {
                     R.id.tab_generate -> {
                         //Fragment Generate QR Code
-                        supportFragmentManager.beginTransaction()
-                            .add(R.id.fragment_container, GenerateFragment()).commit()
+                        supportFragmentManager.beginTransaction().add(R.id.fragment_container, GenerateFragment()).commit()
                     }
 
                     R.id.tab_scanner -> {
                         //Fragment Scanner QR Code
-                        supportFragmentManager.beginTransaction()
-                            .add(R.id.fragment_container, ScannerFragment()).commit()
+                        supportFragmentManager.beginTransaction().add(R.id.fragment_container, ScannerFragment()).commit()
                     }
                 }
             }
@@ -51,7 +91,5 @@ class MainActivity : AppCompatActivity() {
                 Log.d("bottom_bar", "Reselected index: $index, title: ${tab.title}")
             }
         })
-
     }
-
 }
