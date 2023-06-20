@@ -3,4 +3,6 @@
     <string name="text_to_qr_code_generator">Text to QR Code Generator</string>
     <string name="save">Save</string>
     <string name="generate">Generate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

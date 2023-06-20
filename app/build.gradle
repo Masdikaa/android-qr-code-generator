@@ -58,4 +58,7 @@ dependencies {
 
     //Libraries for animated bottomBar
     implementation 'nl.joery.animatedbottombar:library:1.1.0'
+
+    //Hide softkeyboard
+    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
 }
