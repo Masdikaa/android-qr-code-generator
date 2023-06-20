@@ -48,13 +48,14 @@ dependencies {
     //Gif Dependencies
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
 
-    //Libraries to implement QR code generator
+    //Libraries to implement QR code generator and scanner
+    implementation 'com.google.zxing:core:3.4.1'
     implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     implementation "androidx.multidex:multidex:2.0.1"
 
     //Libraries for QR code scanner
-    //implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
 
     //Libraries for animated bottomBar
     implementation 'nl.joery.animatedbottombar:library:1.1.0'

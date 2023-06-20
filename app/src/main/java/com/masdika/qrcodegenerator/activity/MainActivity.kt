@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Initiate first fragment
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container, GenerateFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, GenerateFragment()).commit()
 
         //BottomBar Listener
         binding.bottomBar.setOnTabSelectListener(object : AnimatedBottomBar.OnTabSelectListener {
@@ -76,12 +76,12 @@ class MainActivity : AppCompatActivity() {
                 when (newTab.id) {
                     R.id.tab_generate -> {
                         //Fragment Generate QR Code
-                        supportFragmentManager.beginTransaction().add(R.id.fragment_container, GenerateFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, GenerateFragment()).commit()
                     }
 
                     R.id.tab_scanner -> {
                         //Fragment Scanner QR Code
-                        supportFragmentManager.beginTransaction().add(R.id.fragment_container, ScannerFragment()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, ScannerFragment()).commit()
                     }
                 }
             }
