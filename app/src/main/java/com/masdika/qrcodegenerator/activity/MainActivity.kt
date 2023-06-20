@@ -21,6 +21,7 @@ import com.google.zxing.common.BitMatrix
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.masdika.qrcodegenerator.R
 import com.masdika.qrcodegenerator.databinding.ActivityMainBinding
+import nl.joery.animatedbottombar.AnimatedBottomBar
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -69,6 +70,23 @@ class MainActivity : AppCompatActivity() {
                 binding.inputText.requestFocus()
             }
         }
+
+        binding.bottomBar.setOnTabSelectListener(object : AnimatedBottomBar.OnTabSelectListener {
+            override fun onTabSelected(
+                lastIndex: Int,
+                lastTab: AnimatedBottomBar.Tab?,
+                newIndex: Int,
+                newTab: AnimatedBottomBar.Tab
+            ) {
+                Log.d("bottom_bar", "Selected index: $newIndex, title: ${newTab.title}")
+            }
+
+            // An optional method that will be fired whenever an already selected tab has been selected again.
+            override fun onTabReselected(index: Int, tab: AnimatedBottomBar.Tab) {
+                Log.d("bottom_bar", "Reselected index: $index, title: ${tab.title}")
+            }
+        })
+
     }
 
     private fun saveToStorage(bitmap: Bitmap) {

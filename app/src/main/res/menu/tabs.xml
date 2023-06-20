@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/tab_home"
+        android:id="@+id/tab_generate"
         android:icon="@drawable/qr_code"
         android:title="QR Generator" />
     <item
-        android:id="@+id/tab_alarm"
+        android:id="@+id/tab_scanner"
         android:icon="@drawable/qr_code_scanner"
         android:title="QR Scanner" />
 </menu>
