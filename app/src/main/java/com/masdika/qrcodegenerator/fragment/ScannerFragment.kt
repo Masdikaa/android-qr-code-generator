@@ -17,7 +17,7 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
-import com.masdika.qrcodegenerator.R
+import com.masdika.qrcodegenerator.R.string.the_results_will_appear_here
 import com.masdika.qrcodegenerator.databinding.FragmentScannerBinding
 
 class ScannerFragment : Fragment() {
@@ -38,7 +38,10 @@ class ScannerFragment : Fragment() {
 
         binding.btnCopy.setOnClickListener {
 
-            if (binding.resultField.text.isEmpty() || binding.resultField.text == R.string.the_results_will_appear_here.toString()) {
+            if (binding.resultField.text.isEmpty() || binding.resultField.text == getString(
+                    the_results_will_appear_here
+                )
+            ) {
                 Toast.makeText(context, "Failed to copy, text not yet acquired", Toast.LENGTH_SHORT)
                     .show()
             } else {
@@ -51,6 +54,11 @@ class ScannerFragment : Fragment() {
                 Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnDelete.setOnClickListener {
+            binding.resultField.text = getString(the_results_will_appear_here)
+        }
+
         return binding.root
     }
 
