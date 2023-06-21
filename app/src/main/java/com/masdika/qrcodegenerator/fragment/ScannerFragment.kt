@@ -1,5 +1,8 @@
 package com.masdika.qrcodegenerator.fragment
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context.CLIPBOARD_SERVICE
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +17,7 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import com.masdika.qrcodegenerator.R
 import com.masdika.qrcodegenerator.databinding.FragmentScannerBinding
 
 class ScannerFragment : Fragment() {
@@ -32,6 +36,21 @@ class ScannerFragment : Fragment() {
         codeScanner()
         setPermission()
 
+        binding.btnCopy.setOnClickListener {
+
+            if (binding.resultField.text.isEmpty() || binding.resultField.text == R.string.the_results_will_appear_here.toString()) {
+                Toast.makeText(context, "Failed to copy, text not yet acquired", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                val clipboardManager =
+                    activity?.getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+                val clipData = ClipData.newPlainText(
+                    "scan_result", binding.resultField.text.toString()
+                )
+                clipboardManager.setPrimaryClip(clipData)
+                Toast.makeText(context, "Copied to clipboard", Toast.LENGTH_SHORT).show()
+            }
+        }
         return binding.root
     }
 

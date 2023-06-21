@@ -60,7 +60,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/arial"
-                    android:text="The results will appear here"
+                    android:text="@string/the_results_will_appear_here"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -69,7 +69,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_generate"
+            android:id="@+id/btn_copy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -82,7 +82,7 @@
             tools:ignore="VisualLintButtonSize" />
 
         <Button
-            android:id="@+id/btn_download"
+            android:id="@+id/btn_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/light_blue_6"
